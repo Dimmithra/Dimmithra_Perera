@@ -11,7 +11,7 @@ body{
 .hero-header{
     width: 100%;
     height: 100%;
-    background: grey;
+    background: rgb(46, 46, 46);
 }.wrapper{
     width: 1280px;
     max-width: 95%;
@@ -88,17 +88,16 @@ nav .navlinks li a{
 .container .hero-pic{
     height: 350px;
     width: 350px;
-    border-radius: 100%;
-    
+    border-radius: 20%;
     overflow: hidden;
-    border: 15px solid #444;
+    border: 10px solid #4420;
     box-shadow: 5px 7px 25px rgba(red, green, blue, alpha);
 }
 .hero-pic img{
-    
+    padding: 10px;
     width: 100% ;
     height: 100%;
-    transition: 0.5s;
+    transition: 0.8s;
 }.hero-pic img:hover{
     transform: scale(1.2);
 }
