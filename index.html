@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,8 @@
     <title>Dimmithra Perera</title>
 </head>
 <body>
+
+    <!-- Hero Section -->
     <div class="hero-header"> 
         <div class="wrapper">
             <header>
@@ -23,15 +26,17 @@
                     </div>
                     <ul class="navlinks">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">protfolio</a></li>
+                        <li><a href="#">Portfolio</a></li>
                         <li><a href="#">Resume</a></li>
-                        <li><a href="#">Contact</a></li> 
+                        <li><a href="" onclick="openContact()">Contact</a></li> 
                     </ul>
                 </nav>
             </header>
+
+            <!-- Main Content -->
             <div class="container">
                 <div class="hero-pic">
-                    <img  src="./images/profilepicture.jpg" alt="profile picture" srcset="">
+                    <img src="./images/profilepicture.jpg" alt="profile picture">
                 </div>
                 <div class="hero-text">
                     <h5>Hi I'm <span class="input"></span></h5>
@@ -40,36 +45,54 @@
                         I'm a passionate Full-Stack Developer from Sri Lanka with 2 years of experience in software development. I specialize in building web and mobile applications, crafting clean and efficient code to bring ideas to life. I love solving complex problems and staying up to date with the latest technologies.
                     </p>
                     <div class="btn-group">
-                        <a href="" class="btn active">Download CV</a>
-                        <a href="" class="btn">Contact</a>
+                        <a href="#" class="btn active">Download CV</a>
+                        <a href="#" class="btn" onclick="openContact()">Contact</a>
                     </div>
                     <div class="social">
-                       <a href=""><i class="fa-brands fa-facebook"></i></a>
-                       <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                       <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-   </div>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js">
+    </div>
 
-   </script>
-   <script>
-    var togglebtn = document.querySelector(".togglebtn");
-    var nav = document.querySelector(".navlinks");
-    var link = document.querySelector(".navlinks li");
-    togglebtn.addEventListener('click', function() {
-        this.classList.toggle("click");  
-        nav.classList.toggle("open");
-    });
+    <!-- Contact Section (Dynamically Loaded) -->
+    <div id="contactSection" style="display: none;"></div>
 
-    var typed = new Typed(".input",{
-        strings: ["Frontend Developer", "Mobile Developer", "Web Developer"],
-        typeSpeed: 100,  
-        backSpeed: 9,    
-        loop: true
-    })
-</script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        var togglebtn = document.querySelector(".togglebtn");
+        var nav = document.querySelector(".navlinks");
+
+        togglebtn.addEventListener('click', function() {
+            this.classList.toggle("click");  
+            nav.classList.toggle("open");
+        });
+
+        var typed = new Typed(".input", {
+            strings: ["Frontend Developer", "Mobile Developer", "Web Developer"],
+            typeSpeed: 100,  
+            backSpeed: 9,    
+            loop: true
+        });
+
+        function openContact() {
+            fetch("./pages/contact_us/contact_us.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("contactSection").innerHTML = data;
+                    document.getElementById("contactSection").style.display = "block";
+                })
+                .catch(error => console.error("Error loading contact page:", error));
+        }
+
+        function closeContact() {
+            document.getElementById("contactSection").style.display = "none";
+        }
+    </script>
+
 </body>
 </html>
