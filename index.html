@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <title>Dimmithra Perera</title>
 </head>
 <body>
@@ -12,7 +16,7 @@
     <!-- Hero Section -->
     <div class="hero-header"> 
         <div class="wrapper">
-            <header>
+            <!-- <header>
                 <div class="logo">
                     <i class="fa-solid fa-a"></i>
                     <div class="logo-text">Dimmithra Perera</div>
@@ -31,8 +35,31 @@
                         <li><a href="" onclick="openContact()">Contact</a></li> 
                     </ul>
                 </nav>
-            </header>
-
+            </header> -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Dimmithra Perera</a>
+                  <button class="navbar-toggler" style="background-color: aqua; border-color: beige;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style=" color: blue;"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Resume</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             <!-- Main Content -->
             <div class="container">
                 <div class="hero-pic">
@@ -45,8 +72,8 @@
                         I'm a passionate Full-Stack Developer from Sri Lanka with 2 years of experience in software development. I specialize in building web and mobile applications, crafting clean and efficient code to bring ideas to life. I love solving complex problems and staying up to date with the latest technologies.
                     </p>
                     <div class="btn-group">
-                        <a href="#" class="btn active">Download CV</a>
-                        <a href="#" class="btn" onclick="openContact()">Contact</a>
+                        <a href="#" class="btn active" style="padding: 10px;">Download CV</a>
+                        <a href="#" class="btn" onclick="openContact()" style="padding: 10px;">Contact</a>
                     </div>
                     <div class="social">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -64,13 +91,13 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
-        var togglebtn = document.querySelector(".togglebtn");
-        var nav = document.querySelector(".navlinks");
+        // var togglebtn = document.querySelector(".togglebtn");
+        // var nav = document.querySelector(".navlinks");
 
-        togglebtn.addEventListener('click', function() {
-            this.classList.toggle("click");  
-            nav.classList.toggle("open");
-        });
+        // togglebtn.addEventListener('click', function() {
+        //     this.classList.toggle("click");  
+        //     nav.classList.toggle("open");
+        // });
 
         var typed = new Typed(".input", {
             strings: ["Frontend Developer", "Mobile Developer", "Web Developer"],

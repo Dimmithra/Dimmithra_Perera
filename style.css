@@ -214,3 +214,20 @@ nav .navlinks li a{
 .contact-me-body{
     background: rgb(46, 46, 46);
 }
+
+/* navbar style */
+.navbar-brand{
+    color: white;
+}
+/* .container-fluid{
+    background-color:transparent;
+} */
+.navbar-toggler{
+    /* background-color: red; /* Change the background color */
+    /* color: aqua; */ 
+    border: coral;
+}
+
+.navbar-toggler-icon {
+    filter: invert(100%); /* This makes the default Bootstrap icon white */
+}
