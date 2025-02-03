@@ -67,16 +67,17 @@
                 <div class="hero-pic">
                     <img src="./images/profilepicture.jpg" alt="profile picture">
                 </div>
+
                 <div class="hero-text">
                     <h5>Hi I'm <span class="input"></span></h5>
                     <h1>Dimmithra Perera</h1>
                     <p>
                         I'm a passionate Full-Stack Developer from Sri Lanka with 2 years of experience in software development. I specialize in building web and mobile applications, crafting clean and efficient code to bring ideas to life. I love solving complex problems and staying up to date with the latest technologies.
                     </p>
+                      <!-- Empty section where Languages and Tools will be loaded -->
+                      <div id="languagesSection" style="padding-top: 30px;"></div>
                     <div class="btn-group">
-                        
                         <button type="button" class="btn btn-primary" style="padding: 10px;">Download CV</button>
-                        
                         <button type="button" class="btn btn-primary" onclick="openContact()" style="padding: 10px;">Contact Me</button>
                     </div>
                     <div class="social">
@@ -84,11 +85,12 @@
                         <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     </div>
+                   
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- <div id="contactSection" style="display: none; padding-top: 30px;"></div> -->
     <!-- Contact Section (Dynamically Loaded) -->
     <div id="contactSection" style="display: none;"></div>
 
@@ -123,6 +125,19 @@
         function closeContact() {
             document.getElementById("contactSection").style.display = "none";
         }
+
+        // Automatically load the languages content when the page loads
+        window.onload = function() {
+            fetch("./pages/languages/language.html")
+                .then(response => response.text())
+                .then(data => {
+                    // Insert the fetched content into the languagesSection div
+                    document.getElementById("languagesSection").innerHTML = data;
+                    // Make the languagesSection visible
+                    document.getElementById("languagesSection").style.display = "block";
+                })
+                .catch(error => console.error("Error loading languages content:", error));
+        };
     </script>
 
 </body>
