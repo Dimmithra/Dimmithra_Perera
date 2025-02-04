@@ -41,7 +41,7 @@
                         <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/images/Dimmithra Perera - Software Engineer.pdf">Resume</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Contact me</a>
+                        <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact me</a>
                       </li>
                     </ul>
                   </div>
@@ -61,7 +61,7 @@
                       <div id="languagesSection" style="padding-top: 30px;"></div>
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary" onclick="downloadCV()" style="padding: 10px;">Download CV</button>
-                        <button type="button" class="btn btn-primary" onclick="openContact()" style="padding: 10px;">Contact Me</button>
+                        <button type="button" class="btn btn-primary" onclick="openContactPage()" style="padding: 10px;">Contact Me</button>
                     </div>
                     <div class="social">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -80,6 +80,9 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
+        function openContactPage() {
+            window.location.href = "https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html"; // Replace with your actual page
+        }
 
         var typed = new Typed(".input", {
             strings: ["Frontend Developer", "Mobile Developer", "Web Developer"],
