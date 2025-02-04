@@ -29,15 +29,16 @@
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/Portfolio/Portfolio.html">Portfolio</a>
-                    </li>
                       <!-- <li class="nav-item">
+                        <a class="nav-link" href="./pages/Portfolio/Portfolio.html">Portfolio</a>
+                    </li> -->
+                    <!-- To Do live change this -->
+                      <li class="nav-item">
                         <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html">Portfolio</a>
-                     </li> -->
+                      </li>
                     
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Resume</a>
+                        <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/images/Dimmithra Perera - Software Engineer.pdf">Resume</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Contact me</a>
@@ -59,7 +60,7 @@
                       <!-- Empty section where Languages and Tools will be loaded -->
                       <div id="languagesSection" style="padding-top: 30px;"></div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary" style="padding: 10px;">Download CV</button>
+                        <button type="button" class="btn btn-primary" onclick="downloadCV()" style="padding: 10px;">Download CV</button>
                         <button type="button" class="btn btn-primary" onclick="openContact()" style="padding: 10px;">Contact Me</button>
                     </div>
                     <div class="social">
@@ -113,7 +114,12 @@
                 })
                 .catch(error => console.error("Error loading languages content:", error));
         };
-        
+
+        // Download cv buttton funtion
+          function downloadCV() {
+            window.location.href = "https://dimmithra.github.io/Dimmithra_Perera/images/Dimmithra Perera - Software Engineer.pdf";
+          }
+
     </script>
 
 </body>
