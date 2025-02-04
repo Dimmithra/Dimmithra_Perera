@@ -81,9 +81,10 @@ nav .navlinks li a{
 .container{
     display: flex;
     /* justify-content: space-between; */
-    align-items: center;
-    padding-right: 100px;
-    padding-top: 4rem;
+    justify-content: center;
+    /* align-items: center; */
+    /* padding-right: 100px;*/
+    padding-top: 4rem; 
 }
 .container .hero-pic{
     height: 350px;
@@ -196,7 +197,6 @@ nav .navlinks li a{
     .container{
         flex-direction: column;
         padding-top: 2rem;
-        padding: 150px;
         align-items: center;
     }
     .hero-text{
@@ -266,4 +266,7 @@ nav .navlinks li a{
 .navbar-toggler-image{
     width: 30px; 
     height: auto; 
+}
+.container-fluid{
+    justify-content: space-between;
 }
