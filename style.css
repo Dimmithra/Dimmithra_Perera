@@ -149,6 +149,10 @@ nav .navlinks li a{
 .btn.active{
     border-color: blue;
 }
+.social{
+    
+    justify-content: center;
+}
 .hero-text .social i{
     color: aliceblue;
     font-size: 18px;
@@ -156,7 +160,7 @@ nav .navlinks li a{
     transition: 0.5s;
 }
 .hero-text .social i:hover{
-    color: blue;
+    color: rgb(42, 42, 158);
     transform: rotate(360deg);
 }
 @media(max-width:930px){
