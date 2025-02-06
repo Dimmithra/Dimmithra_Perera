@@ -4,6 +4,7 @@
     margin: 0;
     font-family: poppins,sans-serif;
     text-decoration: none;
+  
 }
 body{
     overflow-x: hidden;
@@ -46,6 +47,14 @@ header{
     font-size:   24px;
     font-weight: 500;
     color: aliceblue;
+
+}
+.hero-abouttxt{
+    padding: 200px;
+    padding-right: 200px;
+    padding-left: 200px;
+    justify-content: center;
+    
 }
 nav .togglebtn{
     width: 35px;
@@ -131,6 +140,7 @@ nav .navlinks li a{
 }
 .btn-group{
     margin: 45PX 0;
+    justify-content: center;
 }
 .btn-group .btn{
    color: antiquewhite;
