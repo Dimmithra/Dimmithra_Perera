@@ -50,11 +50,7 @@ header{
 
 }
 .hero-abouttxt{
-    padding: 200px;
-    padding-right: 200px;
-    padding-left: 200px;
-    justify-content: center;
-    
+    display: block;
 }
 nav .togglebtn{
     width: 35px;
@@ -89,10 +85,8 @@ nav .navlinks li a{
 }
 .container{
     display: flex;
-    /* justify-content: space-between; */
     justify-content: center;
-    /* align-items: center; */
-    /* padding-right: 100px;*/
+   
     padding-top: 4rem; 
 }
 .container .hero-pic{
