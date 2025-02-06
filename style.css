@@ -51,6 +51,7 @@ header{
 }
 .hero-abouttxt{
     display: block;
+    width: 400px;
 }
 nav .togglebtn{
     width: 35px;
