@@ -8,14 +8,31 @@
 }
 body{
     overflow-x: hidden;
+}.appbar{
+    background: url('images/background_image.jpg');
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 20px;
+    align-items: flex-start;
+    position: relative;
+    padding-right: 20px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+}.nav-items{
+    background-color: white;
+    border-radius: 10px;
+    padding: 8px;
 }
 .hero-header{
     width: 100%;
     height: 100%;
     background: rgb(46, 46, 46);
 }.wrapper{
-    width: 1280px;
-    max-width: 95%;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -88,18 +105,18 @@ nav .navlinks li a{
     display: flex;
     justify-content: center;
    
-    padding-top: 4rem; 
+    /* padding-top: 2rem;  */
 }
 .container .hero-pic{
     height: 350px;
     width: 350px;
-    border-radius: 20%;
+    border-radius: 100%;
     overflow: hidden;
     border: 10px solid #4420;
     box-shadow: 5px 7px 25px rgba(red, green, blue, alpha);
 }
 .hero-pic img{
-    padding: 10px;
+    padding: 1px;
     width: 100% ;
     height: 100%;
     transition: 0.8s;
