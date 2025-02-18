@@ -95,8 +95,8 @@
       </div>
     </div>
     <script>
-      window.location.href =
-        "https://dimmithra.github.io/Dimmithra_Perera/utils/alertPage.html";
+      //   window.location.href =
+      //     "https://dimmithra.github.io/Dimmithra_Perera/utils/alertPage.html";
       function openContact() {
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
@@ -129,12 +129,12 @@
           }
         )
           .then(() => {
-            // alert("Your message has been sent!");
-            showModal(
-              "Success!",
-              "Your message has been sent successfully.",
-              true
-            );
+            alert("Your message has been sent successfully!");
+            // showModal(
+            //   "Success!",
+            //   "Your message has been sent successfully.",
+            //   true
+            // );
             document.getElementById("myForm").reset();
           })
           .catch((error) => {
