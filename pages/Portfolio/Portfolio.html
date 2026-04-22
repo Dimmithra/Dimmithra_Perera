@@ -1,77 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./portfolio.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-    <title>Dimmithra - Portfolio</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Dimmithra Perera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="./portfolio.css" />
 </head>
+
 <body>
-    <div class="container">
-        <h2>My Projects</h2>
-        <div class="portfolio-grid" id="portfolioContainer">
-            <!-- Cards will be inserted here dynamically -->
-        </div>
+
+  <!-- Ambient blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">Dimmithra<span class="dot">.</span></a>
+    <div class="nav-menu" id="navMenu">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link nav-link-active" href="#">Portfolio</a>
+      <a class="nav-btn" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact
+        Me</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="nav-link" href="../../index.html" onclick="closeMenu()">Home</a>
+    <a class="nav-link" href="#" onclick="closeMenu()">Portfolio</a>
+    <a class="nav-btn" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact
+      Me</a>
+  </div>
+
+  <!-- PAGE -->
+  <main class="page-wrap">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div class="section-tag"><span class="pulse-dot"></span> My Work</div>
+      <h1 class="page-title">
+        Featured <span class="grad">Projects</span>
+      </h1>
+      <p class="page-sub">
+        A collection of web &amp; mobile applications I've built — from fintech platforms to Flutter apps.
+      </p>
+
+      <!-- Filter tabs -->
+      <div class="filter-row" id="filterRow">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <!-- <button class="filter-btn" data-filter="flutter">Flutter</button> -->
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      </div>
     </div>
 
-    <script src="./common_portfoloycard.js"></script>
-    <script>
-        // Portfolio Items Array
-        const portfolioItems = [
-            {
-                name: "Mobile POS",
-                description: "A mobile POS system for a supermarket, fully accessible by customers via their phones. Features include QR/barcode scanning, product details, promotions, transaction history, and a chat box for user interaction.",
-                technology: "Flutter Dart mongoDB ExpressJs firebaseAuthentication firebase",
-                image: "https://dimmithra.github.io/Dimmithra_Perera/images/posSystem.jpeg"
-            },
-            {
-                name: "PLC Touch App",
-                description: "Payment app which access to user there saving accounts and other accounts.",
-                technology: "Bitbucket Android-SDK Android-Development Flutter iOS-Development Dart Android-Studio Mantis",
-                image: "https://dimmithra.github.io/Dimmithra_Perera/images/TouchIcon.jpeg"
-            },
-            {
-                name: "PLC CAPP-mobile APP",
-                description: "Developing and maintaining front end of the app using Flutter. Finance marketing Officers Do their daily working. File Scanning, Calculate Leasing amount,Status view,Location capturing and share loaction.",
-                technology: "Agile-Methodologies Bitbucket Android-SDK Flutter Mobile-Applications Dart Android-Studio Google-map ",
-                image: "https://dimmithra.github.io/Dimmithra_Perera/images/plc_capp.png"
-            },
-            {
-                name: "Contact buddy App",
-                description: "Contact Buddy is a Flutter app using SQLite and Provider for state management. It allows users to save, edit, and manage contacts efficiently with a smooth and responsive UI.",
-                technology: "Flutter dart provider SQLite",
-                image: "https://dimmithra.github.io/Dimmithra_Perera/images/contact_buddy.png"
-            },
-            {
-                name: "News App",
-                description: "News App is a Flutter-powered news app with Provider for state management, integrating **NewsAPI.org** for real-time updates. Its standout feature is real-time location tracking, delivering localized news tailored to users' current locations for a personalized and dynamic news experience.",
-                technology: "Flutter dart provider LocationCapturing Api:https://newsapi.org/",
-                image: "https://dimmithra.github.io/Dimmithra_Perera/images/newsicon.png"
-            },
-            {
-                name: "Internet Checker",
-                description: "Internet Checker is a real-time internet connection monitoring app built with Flutter and native Android. It continuously checks network status, ensuring users stay informed about connectivity changes for a seamless online experience.",
-                technology: "Flutter dart NativeAndroid",
-                image: ""
-            }
-        ];
+    <!-- Grid -->
+    <div class="portfolio-grid" id="portfolioContainer"></div>
 
-        // Load Portfolio Cards
-        function loadPortfolio() {
-            const container = document.getElementById("portfolioContainer");
+  </main>
 
-            portfolioItems.forEach(item => {
-                const card = createPortfolioCard(item.name, item.description, item.technology, item.image);
-                container.appendChild(card);
-            });
-        }
+  <script>
+    /* ══════════════════════════════
+       DATA
+    ══════════════════════════════ */
+    const portfolioItems = [
 
-        window.onload = loadPortfolio;
-    </script>
+      {
+        name: "PLC Touch App",
+        description: "Payment app which gives users access to their savings accounts and other financial accounts with a clean, secure interface.",
+        technology: ["Flutter", "Dart", "Android SDK", "iOS", "Bitbucket"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/TouchIcon.jpeg",
+        category: "mobile",
+        icon: "fa-solid fa-mobile-screen",
+        github: "",
+        live: ""
+      },
+      {
+        name: "PLC CAPP Mobile",
+        description: "Finance marketing officers manage daily work — file scanning, leasing calculations, status views, location capturing and sharing.",
+        technology: ["Flutter", "Dart", "Google Maps", "Agile", "Bitbucket"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/plc_capp.png",
+        category: "mobile",
+        icon: "fa-solid fa-chart-line",
+        github: "",
+        live: ""
+      },
+      {
+        name: "Kreyol App",
+        description: "KreyolApp is a free dating app for Caribbean people (and the people who 💞them)specifically made for Haitians.",
+        technology: ["Flutter", "Dart", "Firebase", "Provider", "apple store", "google play", "apple pay", "google pay"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/kreyol_logo.webp",
+        category: "mobile",
+        icon: "fa-solid fa-wifi",
+        github: "",
+        live: "https://apps.apple.com/in/app/kreyol-app/id6466824686"
+      },
+      {
+        name: "Mobile POS",
+        description: "A mobile POS system for a supermarket, fully accessible by customers via their phones. Features include QR/barcode scanning, product details, promotions, transaction history, and a chat box.",
+        technology: ["Flutter", "Dart", "MongoDB", "Express.js", "Firebase"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/posSystem.jpeg",
+        category: "mobile",
+        icon: "fa-solid fa-cash-register",
+        github: "https://github.com/dimmithra",
+        live: ""
+      },
+      {
+        name: "Contact Buddy",
+        description: "A Flutter app using SQLite and Provider for state management. Allows users to save, edit, and manage contacts efficiently with a smooth and responsive UI.",
+        technology: ["Flutter", "Dart", "SQLite", "Provider"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/contact_buddy.png",
+        category: "mobile",
+        icon: "fa-solid fa-address-book",
+        github: "https://github.com/dimmithra",
+        live: ""
+      },
+      {
+        name: "News App",
+        description: "Flutter-powered news app with real-time location tracking, delivering localized news tailored to the user's current location via NewsAPI.org integration.",
+        technology: ["Flutter", "Dart", "Provider", "NewsAPI", "GPS"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/newsicon.png",
+        category: "mobile",
+        icon: "fa-solid fa-newspaper",
+        github: "https://github.com/dimmithra",
+        live: ""
+      },
+      {
+        name: "Internet Checker",
+        description: "Real-time internet connection monitoring app built with Flutter and native Android. Continuously checks network status to keep users informed about connectivity changes.",
+        technology: ["Flutter", "Dart", "Native Android"],
+        image: "",
+        category: "mobile",
+        icon: "fa-solid fa-wifi",
+        github: "https://github.com/dimmithra",
+        live: ""
+      },
+      {
+        name: "Hoombar Band",
+        description: "This is a music band website built using Laravel. It features a responsive design, interactive elements, and showcases the band's music, tour dates, and merchandise.",
+        technology: ["LARAVEL", "PHP", "MySQL", "HTML", "CSS", "JavaScript", "tailwind css"],
+        image: "https://www.hoombar.com/assets/images/logo/hoombar_logo.webp",
+        category: "web",
+        icon: "fa-solid fa-wifi",
+        github: "",
+        live: "https://hoombar.com/"
+      },
+
+      {
+        name: "VR THEME PARK Website",
+        description: "VR Theme Park offers carefully designed virtual reality experiences for children, teens, and adults in a safe and supervised environment.",
+        technology: ["LARAVEL", "PHP", "MySQL", "HTML", "CSS", "JavaScript", "tailwind css"],
+        image: "https://www.vrthemepark.com.au/assets/images/logo/vr_theme_park.webp",
+        category: "web",
+        icon: "fa-solid fa-wifi",
+        github: "",
+        live: "https://www.vrthemepark.com.au/"
+      },
+      {
+        name: "Caching Pay Website",
+        description: "Caching Pay is a fintech platform that provides seamless digital payment solutions, enabling users to make secure transactions, manage their finances, and access a range of financial services through an intuitive web interface.",
+        technology: ["LARAVEL", "PHP", "MySQL", "HTML", "CSS", "JavaScript", "tailwind css"],
+        image: "https://cachingpay.io/assets/images/logo/logo-no-background.png",
+        category: "web",
+        icon: "fa-solid fa-wifi",
+        github: "",
+        live: "https://cachingpay.io/"
+      },
+      {
+        name: "Equus - User Feedback Manager",
+        description: "Equus is a cloud-based customer feedback platform by Stalione Group, designed to help businesses easily collect, manage, and analyse customer feedback. With valuable input from our clients, we’ve shaped a tool that empowers merchants to stay connected, improve service quality, and make smarter decisions. Accessible on any device, Equus delivers real-time insights to enhance customer satisfaction and drive continuous improvement.",
+        technology: ["Flutter", "Dart", "Firebase", "Provider", "GOOGLE PLAY", "STRIPE", "laravel", "php", "mysql", "sqflite"],
+        image: "https://dimmithra.github.io/Dimmithra_Perera/images/equus_logo.webp",
+        category: "mobile",
+        icon: "fa-solid fa-wifi",
+        github: "",
+        live: "https://play.google.com/store/apps/details?id=com.stalione.equus&pcampaignid=web_share"
+      },
+    ];
+
+    /* ══════════════════════════════
+       ICON PLACEHOLDER COLORS
+    ══════════════════════════════ */
+    const iconColors = [
+      { bg: "rgba(59,130,246,0.12)", border: "rgba(59,130,246,0.3)", color: "#60a5fa" },
+      { bg: "rgba(34,211,238,0.10)", border: "rgba(34,211,238,0.3)", color: "#22d3ee" },
+      { bg: "rgba(99,102,241,0.12)", border: "rgba(99,102,241,0.3)", color: "#a5b4fc" },
+      { bg: "rgba(248,113,113,0.10)", border: "rgba(248,113,113,0.25)", color: "#fca5a5" },
+      { bg: "rgba(74,222,128,0.10)", border: "rgba(74,222,128,0.25)", color: "#86efac" },
+      { bg: "rgba(251,191,36,0.10)", border: "rgba(251,191,36,0.25)", color: "#fde68a" },
+    ];
+
+    /* ══════════════════════════════
+       CREATE CARD
+    ══════════════════════════════ */
+    function createCard(item, index) {
+      const col = iconColors[index % iconColors.length];
+      const hasImage = item.image && item.image.trim() !== "";
+
+      const tagsHTML = item.technology
+        .map(t => `<span class="tech-tag">${t}</span>`)
+        .join("");
+
+      // Build link buttons — only show if URL exists
+      const githubBtn = item.github
+        ? `<a class="card-link-btn" href="${item.github}" target="_blank" rel="noopener" title="View on GitHub">
+             <i class="fa-brands fa-github"></i> GitHub
+           </a>`
+        : "";
+      const liveBtn = item.live
+        ? `<a class="card-link-btn card-link-live" href="${item.live}" target="_blank" rel="noopener" title="Live Demo">
+             <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+           </a>`
+        : "";
+      const linksHTML = (githubBtn || liveBtn)
+        ? `<div class="card-links">${githubBtn}${liveBtn}</div>`
+        : "";
+
+      const card = document.createElement("div");
+      card.className = "portfolio-card";
+      card.setAttribute("data-category", item.category);
+      card.style.animationDelay = `${index * 0.08}s`;
+
+      card.innerHTML = `
+        <div class="card-media">
+          ${hasImage
+          ? `<img src="${item.image}" alt="${item.name}" class="card-img" onerror="this.parentElement.classList.add('img-error'); this.remove();"/>`
+          : ""}
+          <div class="card-placeholder" style="background:${col.bg}; border-color:${col.border}; ${hasImage ? "display:none" : ""}">
+            <i class="${item.icon}" style="color:${col.color}"></i>
+          </div>
+          <div class="card-cat-badge">${item.category}</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">${item.name}</h3>
+          <p class="card-desc">${item.description}</p>
+          <div class="tech-row">${tagsHTML}</div>
+          ${linksHTML}
+        </div>
+      `;
+
+      const img = card.querySelector(".card-img");
+      if (img) {
+        img.addEventListener("error", () => {
+          img.remove();
+          card.querySelector(".card-placeholder").style.display = "flex";
+        });
+      }
+
+      return card;
+    }
+
+    /* ══════════════════════════════
+       LOAD & FILTER
+    ══════════════════════════════ */
+    function loadPortfolio(filter = "all") {
+      const container = document.getElementById("portfolioContainer");
+      container.innerHTML = "";
+
+      const filtered = filter === "all"
+        ? portfolioItems
+        : portfolioItems.filter(i => i.category === filter);
+
+      filtered.forEach((item, i) => {
+        const card = createCard(item, i);
+        container.appendChild(card);
+        // trigger animation
+        requestAnimationFrame(() => card.classList.add("visible"));
+      });
+    }
+
+    // Filter buttons
+    document.getElementById("filterRow").addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      loadPortfolio(btn.dataset.filter);
+    });
+
+    window.onload = () => loadPortfolio();
+
+    /* ══════════════════════════════
+       MOBILE NAV
+    ══════════════════════════════ */
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("open");
+      document.getElementById("hamburger").classList.toggle("open");
+    }
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("open");
+      document.getElementById("hamburger").classList.remove("open");
+    }
+    document.addEventListener("click", (e) => {
+      const m = document.getElementById("mobileMenu");
+      const h = document.getElementById("hamburger");
+      if (!m.contains(e.target) && !h.contains(e.target)) {
+        m.classList.remove("open");
+        h.classList.remove("open");
+      }
+    });
+  </script>
 </body>
+
 </html>
