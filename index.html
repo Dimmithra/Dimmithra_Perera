@@ -1,159 +1,1134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-      crossorigin="anonymous"
-    ></script>
-    <title>Dimmithra Perera</title>
-  </head>
-  <body>
-    <!-- Hero Section -->
-    <div class="hero-header">
-      <div class="wrapper">
-        <div class="appbar">
-          <div class="nav-links">
-            <a class="nav-items" href="./index.html">Home</a>
-            <a
-              class="nav-items"
-              href="https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html"
-              >Profile</a
-            >
-            <!-- https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html -->
-            <a
-              class="nav-items"
-              href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html"
-              onclick="openContact()"
-              >Contact</a
-            >
-            <!-- https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html -->
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimmithra Perera — Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #04060f;
+      --bg2: #070b18;
+      --surface: #0d1220;
+      --surface2: #111827;
+      --surface3: #1a2340;
+      --blue: #3b82f6;
+      --blue-soft: #60a5fa;
+      --blue-pale: #93c5fd;
+      --cyan: #22d3ee;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: rgba(59, 130, 246, 0.12);
+      --border2: rgba(59, 130, 246, 0.28);
+      --font-d: 'Syne', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-weight: 300;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* grid bg */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* noise */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* blobs */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+      top: -250px;
+      left: -250px;
+      animation: bd1 20s ease-in-out infinite alternate;
+    }
+
+    .blob-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+      bottom: -200px;
+      right: -200px;
+      animation: bd2 25s ease-in-out infinite alternate;
+    }
+
+    .blob-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bd3 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bd1 {
+      to {
+        transform: translate(100px, 120px);
+      }
+    }
+
+    @keyframes bd2 {
+      to {
+        transform: translate(-80px, -100px);
+      }
+    }
+
+    @keyframes bd3 {
+      to {
+        transform: translate(-60%, -60%);
+      }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      background: rgba(4, 6, 15, 0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-d);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .dot {
+      color: var(--blue);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+      transform-origin: left;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-btn {
+      background: var(--blue);
+      color: #fff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-family: var(--font-d);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 1px solid transparent;
+    }
+
+    .nav-btn:hover {
+      background: transparent;
+      border-color: var(--blue);
+      color: var(--blue-soft);
+      transform: translateY(-1px);
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(4, 6, 15, 0.97);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      z-index: 199;
+      padding: 1.5rem 5%;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: slideDown 0.25s ease;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .mobile-menu .nav-link {
+      font-size: 1rem;
+    }
+
+    .mobile-menu .nav-btn {
+      text-align: center;
+      padding: 0.8rem;
+      border-radius: 10px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 70px;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* LEFT */
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.72rem;
+      color: var(--blue-soft);
+      font-weight: 600;
+      width: fit-content;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulsate 2s ease infinite;
+      box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4);
+    }
+
+    @keyframes pulsate {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(34, 211, 238, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+      }
+    }
+
+    .hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+
+    .name-first {
+      color: var(--text);
+    }
+
+    .name-last {
+      display: block;
+      background: linear-gradient(120deg, var(--blue) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-role {
+      font-family: var(--font-d);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      animation: fadeUp 0.5s 0.15s ease both;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .typed-text {
+      color: var(--cyan);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--cyan);
+      vertical-align: middle;
+      margin-left: 1px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0
+      }
+    }
+
+    .hero-desc {
+      max-width: 520px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.5s 0.25s ease both;
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: #fff;
+      padding: 0.8rem 1.75rem;
+      border-radius: 10px;
+      font-family: var(--font-d);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid transparent;
+    }
+
+    .btn-blue:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      padding: 0.8rem 1.75rem;
+      border-radius: 10px;
+      font-family: var(--font-d);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border2);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--blue-soft);
+      color: var(--blue-soft);
+      transform: translateY(-3px);
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.5s 0.3s ease both;
+    }
+
+    .s-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.22s;
+    }
+
+    .s-link:hover {
+      color: var(--blue-soft);
+      border-color: var(--border2);
+      background: var(--surface3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    }
+
+    /* RIGHT CARD */
+    .hero-right {
+      position: relative;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.45), transparent 60%, rgba(34, 211, 238, 0.2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .profile-card::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 180deg at 50% 50%, transparent 0deg, rgba(59, 130, 246, 0.04) 60deg, transparent 120deg);
+      animation: cardrotate 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes cardrotate {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* avatar */
+    .card-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 130px;
+      height: 130px;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(var(--blue), var(--cyan), #6366f1, var(--blue));
+      animation: spinring 5s linear infinite;
+      z-index: 0;
+    }
+
+    .avatar-ring-mask {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: var(--surface);
+      z-index: 1;
+    }
+
+    @keyframes spinring {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .avatar-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      position: relative;
+      z-index: 2;
+      display: block;
+    }
+
+    .avatar-fallback {
+      display: none;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #22d3ee);
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-d);
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-badge {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      width: 22px;
+      height: 22px;
+      background: var(--cyan);
+      border-radius: 50%;
+      border: 3px solid var(--surface);
+      z-index: 3;
+    }
+
+    .card-name {
+      text-align: center;
+    }
+
+    .card-name h3 {
+      font-family: var(--font-d);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .card-name p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(34, 211, 238, 0.08);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: 100px;
+      padding: 3px 10px;
+      font-size: 0.68rem;
+      color: var(--cyan);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .open-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulsate 2s ease infinite;
+    }
+
+    /* stats */
+    .card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .stat-box:hover {
+      border-color: var(--border2);
+    }
+
+    .stat-val {
+      font-family: var(--font-d);
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: linear-gradient(120deg, var(--blue-soft), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-lbl {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    /* stack */
+    .card-stack {
+      position: relative;
+      z-index: 1;
+    }
+
+    .stack-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: rgba(59, 130, 246, 0.07);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      border-radius: 6px;
+      padding: 0.28rem 0.65rem;
+      font-size: 0.7rem;
+      color: var(--blue-pale);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .tag:hover {
+      background: rgba(59, 130, 246, 0.18);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    /* chips */
+    .chip {
+      position: absolute;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .chip i {
+      color: var(--blue-soft);
+      font-size: 0.75rem;
+    }
+
+    .chip-tl {
+      top: 12%;
+      left: -5.8rem;
+      animation: chipfloat 4s ease-in-out infinite;
+    }
+
+    .chip-br {
+      bottom: 20%;
+      right: -5.8rem;
+      animation: chipfloat 5.5s ease-in-out infinite reverse;
+    }
+
+    @keyframes chipfloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: fadeUp 1s 1s ease both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(59, 130, 246, 0.7), transparent);
+      animation: scrollpulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollpulse {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 1;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 1;
+      }
+
+      51% {
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1100px) {
+      .hero-inner {
+        grid-template-columns: 1fr 380px;
+        gap: 3.5rem;
+      }
+
+      .chip {
+        display: none;
+      }
+    }
+
+    @media (max-width:860px) {
+      nav {
+        padding: 0 4%;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero {
+        padding: 85px 4% 100px;
+        align-items: flex-start;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .hero-right {
+        order: -1;
+        width: 100%;
+      }
+
+      .hero-left {
+        order: 1;
+        width: 100%;
+      }
+
+      .profile-card {
+        max-width: 380px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width:520px) {
+      .hero {
+        padding: 80px 5% 90px;
+      }
+
+      .hero-title {
+        font-size: 2.6rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-blue,
+      .btn-ghost {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .profile-card {
+        padding: 1.5rem;
+      }
+
+      .avatar-wrap,
+      .avatar-img {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    @media (max-width:360px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .badge {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="./index.html">Dimmithra<span class="dot">.</span></a>
+    <div class="nav-menu" id="navMenu">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link"
+        href="https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html">Portfolio</a>
+      <a class="nav-btn" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact
+        Me</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="nav-link" href="./index.html" onclick="closeMenu()">Home</a>
+    <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html"
+      onclick="closeMenu()">Portfolio</a>
+    <a class="nav-btn" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact
+      Me</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="badge"><span class="pulse-dot"></span> Available for work</div>
+
+        <h1 class="hero-title">
+          <span class="name-first">Dimmithra</span>
+          <span class="name-last">Perera</span>
+        </h1>
+
+        <div class="hero-role">
+          <span style="color:var(--muted)">I'm a</span>
+          <span class="typed-text" id="typed"></span><span class="cursor"></span>
         </div>
 
-        <div
-          class="container d-flex flex-column align-items-center text-center text-lg-left flex-lg-row"
-        >
-          <div class="hero-pic">
-            <img src="./images/profilepicture.jpg" alt="profile picture" />
-          </div>
-          <div class="hero-text">
-            <h5>Hi I'm <span class="input"></span></h5>
-            <h1>Dimmithra Perera</h1>
-            <p class="hero-abouttxt">
-              I'm a passionate Full-Stack Developer from Sri Lanka with 2 years
-              of experience in software development. I specialize in building
-              web and mobile applications, crafting clean and efficient code to
-              bring ideas to life.
-            </p>
-            <div id="languagesSection" class="mt-3"></div>
-            <div class="btn-group">
-              <center>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  onclick="downloadCV()"
-                >
-                  Download CV
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  onclick="openContactPage()"
-                >
-                  Contact Me
-                </button>
-              </center>
+        <p class="hero-desc">
+          A passionate Full-Stack Developer from Sri Lanka with 3+ years of experience building web &amp; mobile
+          applications. I craft clean, scalable code that turns ideas into real products.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-blue"
+            href="https://dimmithra.github.io/Dimmithra_Perera/images/Dimmithra Perera - Software Engineer.pdf">
+            <i class="fa-solid fa-download"></i> Download CV
+          </a>
+          <a class="btn-ghost" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">
+            <i class="fa-regular fa-envelope"></i> Get in Touch
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a class="s-link" href="https://www.linkedin.com/in/dimmithra-perera-b715361ba" target="_blank"
+            title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="s-link" href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="s-link" href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="s-link" href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hero-right">
+        <!-- <div class="chip chip-tl"><i class="fa-solid fa-bolt"></i> React Native</div>
+        <div class="chip chip-tl"><i class="fa-solid fa-bolt"></i> Flutter</div>
+        <div class="chip chip-br"><i class="fa-solid fa-layer-group"></i> Full-Stack</div> -->
+
+        <div class="profile-card">
+          <div class="card-top">
+            <div class="avatar-wrap">
+              <div class="avatar-ring"></div>
+              <div class="avatar-ring-mask"></div>
+              <img id="avatarImg" src="https://dimmithra.github.io/Dimmithra_Perera/images/profilepicture.jpg"
+                alt="Dimmithra Perera" class="avatar-img"
+                onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';" />
+              <div id="avatarFallback" class="avatar-fallback">DP</div>
+              <div class="avatar-badge"></div>
             </div>
-            <div class="social">
-              <a href="#"><i class="fa-brands fa-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/dimmithra-perera-b715361ba"
-                ><i class="fa-brands fa-linkedin"></i
-              ></a>
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <div class="card-name">
+              <h3>Dimmithra Perera</h3>
+              <p>LK Sri Lanka · Full-Stack Dev</p>
+              <div class="open-badge">Open to opportunities</div>
+            </div>
+          </div>
+
+          <div class="card-stats">
+            <div class="stat-box">
+              <div class="stat-val">3+</div>
+              <div class="stat-lbl">Years Exp.</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">15+</div>
+              <div class="stat-lbl">Projects</div>
+            </div>
+          </div>
+
+          <div class="card-stack">
+            <div class="stack-title">Tech Stack</div>
+            <div class="stack-tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">React Native</span>
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">HTML</span>
+              <span class="tag">Android</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">IOS</span>
+              <span class="tag">Swift</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">sqflite</span>
+              <span class="tag">Firebase</span>
             </div>
           </div>
         </div>
       </div>
+
     </div>
-    <!-- portfoliyo -->
 
-    <!-- Contact us  -->
-    <!-- <div id="contactSection" style="display: none"></div> -->
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-    <script>
-      function openContactPage() {
-        window.location.href =
-          "https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html"; // Replace with your actual page
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <script>
+    // Typing
+    const roles = ["Frontend Developer", "Mobile Developer", "Full-Stack Developer", "Web Developer"];
+    let ri = 0, ci = 0, del = false;
+    const el = document.getElementById("typed");
+    function tick() {
+      const w = roles[ri];
+      el.textContent = del ? w.slice(0, --ci) : w.slice(0, ++ci);
+      if (!del && ci === w.length) { del = true; setTimeout(tick, 1800); return; }
+      if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; setTimeout(tick, 350); return; }
+      setTimeout(tick, del ? 55 : 85);
+    }
+    tick();
+
+    // Mobile nav
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("open");
+      document.getElementById("hamburger").classList.toggle("open");
+    }
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.remove("open");
+      document.getElementById("hamburger").classList.remove("open");
+    }
+    document.addEventListener("click", function (e) {
+      const m = document.getElementById("mobileMenu");
+      const h = document.getElementById("hamburger");
+      if (!m.contains(e.target) && !h.contains(e.target)) {
+        m.classList.remove("open");
+        h.classList.remove("open");
       }
+    });
+  </script>
+</body>
 
-      var typed = new Typed(".input", {
-        strings: ["Frontend Developer", "Mobile Developer", "Web Developer"],
-        typeSpeed: 100,
-        backSpeed: 9,
-        loop: true,
-      });
-
-      function openContact() {
-        fetch("./pages/contact_us/contact_us.html")
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById("contactSection").innerHTML = data;
-            document.getElementById("contactSection").style.display = "block";
-          })
-          .catch((error) =>
-            console.error("Error loading contact page:", error)
-          );
-      }
-
-      // function closeContact() {
-      //     document.getElementById("contactSection").style.display = "none";
-      // }
-
-      // Automatically load the languages content when the page loads
-      window.onload = function () {
-        fetch("./pages/languages/language.html")
-          .then((response) => response.text())
-          .then((data) => {
-            // Insert the fetched content into the languagesSection div
-            document.getElementById("languagesSection").innerHTML = data;
-            // Make the languagesSection visible
-            document.getElementById("languagesSection").style.display = "block";
-          })
-          .catch((error) =>
-            console.error("Error loading languages content:", error)
-          );
-      };
-
-      // Download cv buttton funtion
-      function downloadCV() {
-        window.location.href =
-          "https://dimmithra.github.io/Dimmithra_Perera/images/Dimmithra Perera - Software Engineer.pdf";
-      }
-    </script>
-  </body>
 </html>
