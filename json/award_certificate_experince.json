@@ -10,7 +10,7 @@
     "title": "Encoder-Decoder Architecture",
     "issuer": "Google Cloud Training Online",
     "date": "2025",
-    "icon": "fa-solid fa-google-scholar",
+    "icon": "fa-brands fa-google-scholar",
     "badge": "Verified"
   },
   {
@@ -24,14 +24,14 @@
     "title": "Introduction to flutter Course ",
     "issuer": "Simplilearn",
     "date": "2024",
-    "icon": "fa-solid fa-flutter",
+    "icon": "fa-brands fa-flutter",
     "badge": "Verified"
   },
   {
     "title": "certificate in JAVA Programming",
     "issuer": "ESOFT Metro Campus",
     "date": "Jun 2022 – Oct 2022",
-    "icon": "fa-solid fa-java",
+    "icon": "fa-brands fa-java",
     "badge": "Certified"
   }
 ]
