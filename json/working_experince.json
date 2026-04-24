@@ -15,7 +15,12 @@
       "MySQL",
       "sqlflite",
       "React",
-      "Cloud Services"
+      "Cloud Services",
+      "Bitbucket",
+      "GitHub",
+      "Figma",
+      "Jira",
+      "Google authentication"
     ]
   },
   {
@@ -35,7 +40,10 @@
       "Apple App Store",
       "Lanka pay payment gateway",
       "Telco services integration",
-      "Dual pinning"
+      "Dual pinning",
+      "Bitbucket",
+      "Jira",
+      "Agile Methodology"
     ]
   },
   {
@@ -52,7 +60,10 @@
       "iOS",
       "Swift",
       "Google Play Store",
-      "Apple App Store"
+      "Apple App Store",
+      "Bitbucket",
+      "Agile Methodology",
+      "Jira"
     ]
   }
 ]
