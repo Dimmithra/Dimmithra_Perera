@@ -952,6 +952,99 @@
         padding: 0.35rem 0.8rem;
       }
     }
+
+
+    /* SECTION STYLING */
+    .section {
+      position: relative;
+      z-index: 2;
+      padding: 80px 5%;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-d);
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(120deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* TIMELINE (USED FOR EXPERIENCE & EDUCATION) */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 2rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+
+    .timeline-item:hover {
+      border-color: var(--border2);
+      transform: translateY(-2px);
+    }
+
+    .timeline-period {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-content h3 {
+      font-family: var(--font-d);
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-subtitle {
+      font-size: 0.95rem;
+      color: var(--blue-soft);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-tag {
+      background: rgba(34, 211, 238, 0.08);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      color: var(--cyan);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
   </style>
 </head>
 
@@ -1024,7 +1117,8 @@
           <a class="s-link" href="https://github.com/Dimmithra" title="GitHub"><i class="fa-brands fa-github"></i></a>
           <a class="s-link" href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           <a class="s-link" href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a class="s-link" href="https://stackoverflow.com/users/20872002/dimmithra-perera" title="stack-overflow"><i class="fa-brands  fa-stack-overflow"></i></a>
+          <a class="s-link" href="https://stackoverflow.com/users/20872002/dimmithra-perera" title="stack-overflow"><i
+              class="fa-brands  fa-stack-overflow"></i></a>
         </div>
       </div>
 
@@ -1097,8 +1191,37 @@
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
+
+  </section>
+  <section class="section" id="experience-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Work Experience</h2>
+      </div>
+      <div class="timeline" id="experienceContainer">
+      </div>
+    </div>
   </section>
 
+  <section class="section" id="education-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="timeline" id="educationContainer">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="certificates-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Certificates & Awards</h2>
+      </div>
+      <div class="certificates-grid" id="certificatesContainer">
+      </div>
+    </div>
+  </section>
   <script>
     // Typing
     const roles = ["Frontend Developer", "Mobile Developer", "Full-Stack Developer", "Web Developer"];
@@ -1130,6 +1253,54 @@
         h.classList.remove("open");
       }
     });
+
+    // Fetch experience, education & certificates data
+    async function renderPortfolio() {
+      // Load Experience
+      const expData = await fetchData('https://dimmithra.github.io/Dimmithra_Perera/json/experience.json');
+      document.getElementById('experienceContainer').innerHTML = expData.map((exp, i) => `
+        <div class="timeline-item animate-in" style="animation-delay: ${i * 0.1}s">
+          <div class="timeline-period">${exp.period}</div>
+          <div class="timeline-content">
+            <h3>${exp.role}</h3>
+            <div class="timeline-subtitle">${exp.company}</div>
+            <p class="timeline-desc">${exp.description}</p>
+            <div class="timeline-tags">
+              ${exp.technologies.map(t => `<span class="timeline-tag">${t}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Load Education (Timeline Style)
+      const eduData = await fetchData('https://dimmithra.github.io/Dimmithra_Perera/json/education.json');
+      document.getElementById('educationContainer').innerHTML = eduData.map((edu, i) => `
+        <div class="timeline-item animate-in" style="animation-delay: ${i * 0.1}s">
+          <div class="timeline-period">${edu.period}</div>
+          <div class="timeline-content">
+            <h3><i class="${edu.icon}" style="margin-right:10px; color:var(--blue-soft)"></i>${edu.degree}</h3>
+            <div class="timeline-subtitle">${edu.school}</div>
+            <p class="timeline-desc">${edu.field}</p>
+          </div>
+        </div>
+      `).join('');
+
+      // Load Certificates
+      const certData = await fetchData('https://dimmithra.github.io/Dimmithra_Perera/json/certificates.json');
+      document.getElementById('certificatesContainer').innerHTML = certData.map((cert, i) => `
+        <div class="certificate-card animate-in" style="animation-delay: ${i * 0.1}s">
+          <div style="display:flex; gap:15px; align-items:center;">
+             <i class="${cert.icon}" style="font-size:1.5rem; color:var(--cyan)"></i>
+             <div>
+                <h4 style="font-family:var(--font-d)">${cert.title}</h4>
+                <small style="color:var(--blue-soft)">${cert.issuer}</small>
+             </div>
+          </div>
+          <div style="margin-top:10px; font-size:0.8rem; color:var(--muted)">${cert.date}</div>
+          <span class="cert-badge">${cert.badge}</span>
+        </div>
+      `).join('');
+    }
   </script>
 </body>
 

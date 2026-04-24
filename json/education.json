@@ -1,0 +1,16 @@
+[
+  {
+    "period": "2016 - 2020",
+    "degree": "Bachelor of Science in Computer Science",
+    "school": "University of Colombo",
+    "field": "Computer Science & Software Engineering",
+    "icon": "fa-solid fa-graduation-cap"
+  },
+  {
+    "period": "2015 - 2016",
+    "degree": "Advanced Diploma in Web Development",
+    "school": "Institute of Technology",
+    "field": "Full-Stack Web Development",
+    "icon": "fa-solid fa-code"
+  }
+]

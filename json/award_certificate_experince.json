@@ -1,0 +1,23 @@
+[
+  {
+    "title": "React Advanced Patterns",
+    "issuer": "Udemy",
+    "date": "2023",
+    "icon": "fa-solid fa-certificate",
+    "badge": "Verified"
+  },
+  {
+    "title": "Flutter Development Masterclass",
+    "issuer": "Coursera",
+    "date": "2022",
+    "icon": "fa-solid fa-award",
+    "badge": "Professional"
+  },
+  {
+    "title": "AWS Certified Solutions Architect",
+    "issuer": "Amazon Web Services",
+    "date": "2022",
+    "icon": "fa-solid fa-cloud",
+    "badge": "Associate"
+  }
+]

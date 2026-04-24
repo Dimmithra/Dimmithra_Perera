@@ -1,0 +1,23 @@
+[
+  {
+    "period": "2023 - Present",
+    "role": "Senior Full-Stack Developer",
+    "company": "Tech Innovations Ltd",
+    "description": "Leading frontend and backend development for enterprise-level applications. Architecting scalable solutions and mentoring junior developers.",
+    "technologies": ["React", "Node.js", "MongoDB", "AWS"]
+  },
+  {
+    "period": "2021 - 2023",
+    "role": "Mobile Developer",
+    "company": "Digital Solutions Inc",
+    "description": "Developed cross-platform mobile applications using Flutter and React Native. Collaborated with UI/UX designers to implement responsive interfaces.",
+    "technologies": ["Flutter", "React Native", "Firebase", "Dart"]
+  },
+  {
+    "period": "2019 - 2021",
+    "role": "Junior Web Developer",
+    "company": "StartUp Hub",
+    "description": "Built web applications using PHP and Laravel. Contributed to database design and API development.",
+    "technologies": ["Laravel", "PHP", "MySQL", "HTML/CSS"]
+  }
+]
