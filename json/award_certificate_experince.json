@@ -1,23 +1,37 @@
 [
   {
-    "title": "React Advanced Patterns",
-    "issuer": "Udemy",
-    "date": "2023",
+    "title": "Certified App Security Integrator",
+    "issuer": "Talsec",
+    "date": "2025",
+    "icon": "fa-solid fa-file-shield",
+    "badge": "Certified"
+  },
+  {
+    "title": "Encoder-Decoder Architecture",
+    "issuer": "Google Cloud Training Online",
+    "date": "2025",
+    "icon": "fa-solid fa-google-scholar",
+    "badge": "Verified"
+  },
+  {
+    "title": "Introduction to Artifical Intelligence ",
+    "issuer": "Simplilearn",
+    "date": "2024",
     "icon": "fa-solid fa-certificate",
     "badge": "Verified"
   },
   {
-    "title": "Flutter Development Masterclass",
-    "issuer": "Coursera",
-    "date": "2022",
-    "icon": "fa-solid fa-award",
-    "badge": "Professional"
+    "title": "Introduction to flutter Course ",
+    "issuer": "Simplilearn",
+    "date": "2024",
+    "icon": "fa-solid fa-flutter",
+    "badge": "Verified"
   },
   {
-    "title": "AWS Certified Solutions Architect",
-    "issuer": "Amazon Web Services",
-    "date": "2022",
-    "icon": "fa-solid fa-cloud",
-    "badge": "Associate"
+    "title": "certificate in JAVA Programming",
+    "issuer": "ESOFT Metro Campus",
+    "date": "Jun 2022 – Oct 2022",
+    "icon": "fa-solid fa-java",
+    "badge": "Certified"
   }
 ]

@@ -1254,10 +1254,23 @@
       }
     });
 
-    // Fetch experience, education & certificates data
+    // 1. ADDED THE MISSING FETCH FUNCTION
+    async function fetchData(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response was not ok');
+        return await response.json();
+      } catch (error) {
+        console.error("Fetch error: ", error);
+        return []; // Return empty array to prevent map errors
+      }
+    }
+    
     async function renderPortfolio() {
+      const BASE_URL = 'https://dimmithra.github.io/Dimmithra_Perera/json/';
+
       // Load Experience
-      const expData = await fetchData('https://dimmithra.github.io/Dimmithra_Perera/json/experience.json');
+      const expData = await fetchData(`${BASE_URL}working_experince.json`);
       document.getElementById('experienceContainer').innerHTML = expData.map((exp, i) => `
         <div class="timeline-item animate-in" style="animation-delay: ${i * 0.1}s">
           <div class="timeline-period">${exp.period}</div>
@@ -1266,41 +1279,43 @@
             <div class="timeline-subtitle">${exp.company}</div>
             <p class="timeline-desc">${exp.description}</p>
             <div class="timeline-tags">
-              ${exp.technologies.map(t => `<span class="timeline-tag">${t}</span>`).join('')}
+              ${exp.technologies ? exp.technologies.map(t => `<span class="timeline-tag">${t}</span>`).join('') : ''}
             </div>
           </div>
         </div>
       `).join('');
 
-      // Load Education (Timeline Style)
-      const eduData = await fetchData('https://dimmithra.github.io/Dimmithra_Perera/json/education.json');
+      // Load Education
+      const eduData = await fetchData(`${BASE_URL}education.json`);
       document.getElementById('educationContainer').innerHTML = eduData.map((edu, i) => `
         <div class="timeline-item animate-in" style="animation-delay: ${i * 0.1}s">
           <div class="timeline-period">${edu.period}</div>
           <div class="timeline-content">
-            <h3><i class="${edu.icon}" style="margin-right:10px; color:var(--blue-soft)"></i>${edu.degree}</h3>
+            <h3><i class="${edu.icon || 'fa-solid fa-graduation-cap'}" style="margin-right:10px; color:var(--blue-soft)"></i>${edu.degree}</h3>
             <div class="timeline-subtitle">${edu.school}</div>
-            <p class="timeline-desc">${edu.field}</p>
+            <p class="timeline-desc">${edu.field || ''}</p>
           </div>
         </div>
       `).join('');
 
       // Load Certificates
-      const certData = await fetchData('https://dimmithra.github.io/Dimmithra_Perera/json/certificates.json');
+      const certData = await fetchData(`${BASE_URL}award_certificate_experince.json`);
       document.getElementById('certificatesContainer').innerHTML = certData.map((cert, i) => `
         <div class="certificate-card animate-in" style="animation-delay: ${i * 0.1}s">
           <div style="display:flex; gap:15px; align-items:center;">
-             <i class="${cert.icon}" style="font-size:1.5rem; color:var(--cyan)"></i>
+             <i class="${cert.icon || 'fa-solid fa-award'}" style="font-size:1.5rem; color:var(--cyan)"></i>
              <div>
                 <h4 style="font-family:var(--font-d)">${cert.title}</h4>
                 <small style="color:var(--blue-soft)">${cert.issuer}</small>
              </div>
           </div>
           <div style="margin-top:10px; font-size:0.8rem; color:var(--muted)">${cert.date}</div>
-          <span class="cert-badge">${cert.badge}</span>
+          <span class="cert-badge">${cert.badge || 'Certificate'}</span>
         </div>
       `).join('');
     }
+
+    document.addEventListener('DOMContentLoaded', renderPortfolio);
   </script>
 </body>
 

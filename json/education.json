@@ -1,16 +1,23 @@
 [
   {
-    "period": "2016 - 2020",
-    "degree": "Bachelor of Science in Computer Science",
-    "school": "University of Colombo",
+    "period": "2023 - 2024",
+    "degree": "BSc (Hons) in Computer Science and Software Engineering",
+    "school": "Kingston University - London",
+    "field": "Computer Science & Software Engineering",
+    "icon": "fa-solid fa-user-graduate"
+  },
+  {
+    "period": "2020 - 2023",
+    "degree": "Higher National Diploma, Computer Software Engineering",
+    "school": "Pearson College London",
     "field": "Computer Science & Software Engineering",
     "icon": "fa-solid fa-graduation-cap"
   },
   {
-    "period": "2015 - 2016",
-    "degree": "Advanced Diploma in Web Development",
-    "school": "Institute of Technology",
-    "field": "Full-Stack Web Development",
-    "icon": "fa-solid fa-code"
+    "period": "2006 - 2019",
+    "degree": "Grade: O/L - A/L",
+    "school": "St. Sebastian's College, Moratuwa",
+    "field": "General Education",
+    "icon": "fa-solid fa-school"
   }
 ]

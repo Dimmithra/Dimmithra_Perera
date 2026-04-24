@@ -1,23 +1,58 @@
 [
   {
-    "period": "2023 - Present",
-    "role": "Senior Full-Stack Developer",
-    "company": "Tech Innovations Ltd",
-    "description": "Leading frontend and backend development for enterprise-level applications. Architecting scalable solutions and mentoring junior developers.",
-    "technologies": ["React", "Node.js", "MongoDB", "AWS"]
+    "period": "2025 SEP - Present",
+    "role": "Software Engineer - Mobile Developer",
+    "company": "Stalione lanka PVT LTD",
+    "description": "Develop and maintain mobile applications using Flutter, React Native, Android, and Swift, while collaborating with cross-functional teams to design, build, and deliver new features.",
+    "technologies": [
+      "Flutter",
+      "Dart",
+      "React Native",
+      "Android",
+      "Swift",
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "sqlflite",
+      "React",
+      "Cloud Services"
+    ]
   },
   {
-    "period": "2021 - 2023",
-    "role": "Mobile Developer",
-    "company": "Digital Solutions Inc",
-    "description": "Developed cross-platform mobile applications using Flutter and React Native. Collaborated with UI/UX designers to implement responsive interfaces.",
-    "technologies": ["Flutter", "React Native", "Firebase", "Dart"]
+    "period": "2024 OCT - 2025 Jul",
+    "role": "Senior Software Developer - Mobile Developer",
+    "company": "People's Leasing & Finance PLC",
+    "description": "Developed cross-platform mobile applications using Flutter and Dart. Worked closely with UI/UX designers to deliver responsive, user-friendly interfaces. Published applications on the Google Play Store and Apple App Store, while maintaining app security and performance.",
+    "technologies": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Mobile App Security",
+      "Android",
+      "iOS",
+      "Swift",
+      "Google Play Store",
+      "Apple App Store",
+      "Lanka pay payment gateway",
+      "Telco services integration",
+      "Dual pinning"
+    ]
   },
   {
-    "period": "2019 - 2021",
-    "role": "Junior Web Developer",
-    "company": "StartUp Hub",
-    "description": "Built web applications using PHP and Laravel. Contributed to database design and API development.",
-    "technologies": ["Laravel", "PHP", "MySQL", "HTML/CSS"]
+    "period": "2022 Nov - 2024 Oct",
+    "role": "Associate Software Developer - Mobile Developer",
+    "company": "People's Leasing & Finance PLC",
+    "description": "Developed cross-platform mobile applications using Flutter and Dart. Worked closely with UI/UX designers to deliver responsive, user-friendly interfaces. Published applications on the Google Play Store and Apple App Store, while maintaining app performance.",
+    "technologies": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Mobile App Security",
+      "Android",
+      "iOS",
+      "Swift",
+      "Google Play Store",
+      "Apple App Store"
+    ]
   }
 ]
