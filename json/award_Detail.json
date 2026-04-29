@@ -3,74 +3,21 @@
     {
       "id": 1,
       "icon": "🏆",
-      "title": "Best Mobile App Developer",
-      "organization": "Tech Innovation Awards 2023",
-      "date": "October 2023",
-      "description": "Recognized for exceptional contribution to mobile app development using Flutter and innovative problem-solving.",
-      "badge": "Achievement"
+      "title": "Best Digitalization Process Enabler Of The Year - PLC TOUCH mobile App",
+      "organization": "National ICT Awards NBQSA",
+      "date": "2023",
+      "description": "Best Digitalization Process Enabler Of The Year - PLC TOUCH mobile App",
+      "badge": "Team Achievement"
     },
-    {
-      "id": 2,
-      "icon": "⭐",
-      "title": "Excellence in Code Quality",
-      "organization": "Company Annual Awards",
-      "date": "August 2023",
-      "description": "Awarded for maintaining highest code quality standards and best practices in all projects.",
-      "badge": "Excellence"
-    },
-    {
-      "id": 3,
-      "icon": "🎯",
-      "title": "Project Delivery Excellence",
-      "organization": "PLC Finance Limited",
-      "date": "June 2023",
-      "description": "Recognized for timely and successful delivery of critical mobile applications.",
-      "badge": "Leadership"
-    },
-    {
-      "id": 4,
-      "icon": "🌟",
-      "title": "Top Performer",
-      "organization": "Development Team",
-      "date": "March 2023",
-      "description": "Awarded as top performer for exceptional performance and team contributions.",
-      "badge": "Performance"
-    },
-    {
-      "id": 5,
-      "icon": "🚀",
-      "title": "Innovation Award",
-      "organization": "Tech Community",
-      "date": "January 2023",
-      "description": "Recognized for innovative approach to solving complex technical challenges.",
-      "badge": "Innovation"
-    },
-    {
-      "id": 6,
-      "icon": "💎",
-      "title": "Outstanding Contribution",
-      "organization": "Developer Community",
-      "date": "November 2022",
-      "description": "Recognized for outstanding contributions to open source and community projects.",
-      "badge": "Community"
-    },
-    {
-      "id": 7,
-      "icon": "👑",
-      "title": "Developer of the Year",
-      "organization": "Annual Tech Summit 2022",
-      "date": "September 2022",
-      "description": "Awarded for outstanding technical expertise and leadership in mobile development.",
-      "badge": "Recognition"
-    },
-    {
-      "id": 8,
-      "icon": "🎖️",
-      "title": "Best Team Player",
-      "organization": "Company Culture Awards",
-      "date": "July 2022",
-      "description": "Recognized for excellent collaboration and teamwork in cross-functional projects.",
-      "badge": "Teamwork"
+     {
+      "id": 1,
+      "icon": "🏆",
+      "title": "In-house Development category - NBQSA(2023)",
+      "organization": "National ICT Awards NBQSA",
+      "date": "2023",
+      "description": "In-house Development category for PLC Touch mobile App - NBQSA(2023)",
+      "badge": "Team Achievement"
     }
+   
   ]
 }
