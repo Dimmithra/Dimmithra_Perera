@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awards - Dimmithra Perera</title>
+    <link rel="icon" href="https://dimmithra.github.io/Dimmithra_Perera/images/profilepicture.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #04060f;
+            --bg2: #070b18;
+            --surface: #0d1220;
+            --surface2: #111827;
+            --surface3: #1a2340;
+            --blue: #3b82f6;
+            --blue-soft: #60a5fa;
+            --blue-pale: #93c5fd;
+            --cyan: #22d3ee;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --border: rgba(59, 130, 246, 0.12);
+            --border2: rgba(59, 130, 246, 0.28);
+            --font-d: 'Syne', sans-serif;
+            --font-b: 'DM Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-b);
+            font-weight: 300;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* grid bg */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* noise */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* blobs */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(130px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+            top: -250px;
+            left: -250px;
+            animation: bd1 20s ease-in-out infinite alternate;
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+            bottom: -200px;
+            right: -200px;
+            animation: bd2 25s ease-in-out infinite alternate;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: bd3 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes bd1 {
+            to {
+                transform: translate(100px, 120px);
+            }
+        }
+
+        @keyframes bd2 {
+            to {
+                transform: translate(-80px, -100px);
+            }
+        }
+
+        @keyframes bd3 {
+            to {
+                transform: translate(-60%, -60%);
+            }
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            background: rgba(4, 6, 15, 0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-d);
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-logo .dot {
+            color: var(--blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--blue);
+            transform: scaleX(0);
+            transition: transform 0.25s;
+            transform-origin: left;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-btn {
+            background: var(--blue);
+            color: #fff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-family: var(--font-d);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: 1px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background: transparent;
+            border-color: var(--blue);
+            color: var(--blue-soft);
+            transform: translateY(-1px);
+        }
+
+        /* hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(4, 6, 15, 0.97);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            z-index: 199;
+            padding: 1.5rem 5%;
+            flex-direction: column;
+            gap: 1.25rem;
+            animation: slideDown 0.25s ease;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 1rem;
+        }
+
+        .mobile-menu .nav-btn {
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 10px;
+        }
+
+        /* ── AWARDS PAGE ── */
+        .awards-section {
+            position: relative;
+            z-index: 2;
+            padding: 100px 5% 80px;
+            border-top: 1px solid var(--border);
+        }
+
+        .awards-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .awards-header {
+            margin-bottom: 3.5rem;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .awards-title {
+            font-family: var(--font-d);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            background: linear-gradient(120deg, var(--blue), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .awards-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Awards Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.45), transparent 60%, rgba(34, 211, 238, 0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .award-card:hover {
+            border-color: var(--border2);
+            transform: translateY(-6px);
+        }
+
+        .award-card:hover::before {
+            opacity: 1;
+        }
+
+        .award-icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border2);
+            border-radius: 12px;
+            font-size: 1.8rem;
+        }
+
+        .award-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .award-title {
+            font-family: var(--font-d);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .award-org {
+            font-size: 0.9rem;
+            color: var(--blue-soft);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .award-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .award-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .award-badge {
+            display: inline-block;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.25);
+            color: var(--cyan);
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--cyan);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            border: 2px solid var(--border);
+            border-top-color: var(--blue);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            color: #f87171;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:860px) {
+            nav {
+                padding: 0 4%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .awards-section {
+                padding: 85px 4% 80px;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width:520px) {
+            .awards-section {
+                padding: 80px 4% 70px;
+            }
+
+            .awards-title {
+                font-size: 1.8rem;
+            }
+
+            .award-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- NAV -->
+    <nav>
+        <a class="nav-logo" href="./index.html">Dimmithra<span class="dot">.</span></a>
+        <div class="nav-menu" id="navMenu">
+            <a class="nav-link" href="./index.html">Home</a>
+            <a class="nav-link"
+                href="https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html">Portfolio</a>
+            <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/pages/awards/awards.html">Awards</a>
+            <a class="nav-btn"
+                href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact
+                Me</a>
+
+        </div>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a class="nav-link" href="./index.html" onclick="closeMenu()">Home</a>
+        <a class="nav-link" href="https://dimmithra.github.io/Dimmithra_Perera/pages/Portfolio/Portfolio.html"
+            onclick="closeMenu()">Portfolio</a>
+        <a class="nav-btn" href="https://dimmithra.github.io/Dimmithra_Perera/pages/contact_us/contact_us.html">Contact
+            Me</a>
+    </div>
+
+    <!-- AWARDS SECTION -->
+    <section class="awards-section">
+        <div class="awards-inner">
+            <div class="awards-header">
+                <h1 class="awards-title">🏆 Awards & Achievements</h1>
+                <p class="awards-subtitle">Recognition and accolades for excellence in mobile development, code quality,
+                    and innovative solutions throughout my professional journey.</p>
+            </div>
+
+            <div class="awards-grid" id="awardsContainer">
+                <div class="loading">Loading awards...</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile nav
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("open");
+            document.getElementById("hamburger").classList.toggle("open");
+        }
+
+        function closeMenu() {
+            document.getElementById("mobileMenu").classList.remove("open");
+            document.getElementById("hamburger").classList.remove("open");
+        }
+
+        document.addEventListener("click", function (e) {
+            const m = document.getElementById("mobileMenu");
+            const h = document.getElementById("hamburger");
+            if (!m.contains(e.target) && !h.contains(e.target)) {
+                m.classList.remove("open");
+                h.classList.remove("open");
+            }
+        });
+
+        // Fetch and render awards
+        async function loadAwards() {
+            try {
+                const response = await fetch('https://dimmithra.github.io/Dimmithra_Perera/json/awards.json');
+                if (!response.ok) throw new Error('Failed to load awards');
+                const data = await response.json();
+                renderAwards(data.awards);
+            } catch (error) {
+                console.error('Error loading awards:', error);
+                document.getElementById('awardsContainer').innerHTML =
+                    '<div class="error-message"><i class="fa-solid fa-exclamation-circle"></i> Failed to load awards. Please try again later.</div>';
+            }
+        }
+
+        // Render awards dynamically
+        function renderAwards(awards) {
+            const container = document.getElementById('awardsContainer');
+            container.innerHTML = '';
+
+            if (awards.length === 0) {
+                container.innerHTML = '<p class="error-message">No awards found.</p>';
+                return;
+            }
+
+            awards.forEach((award, index) => {
+                const card = document.createElement('div');
+                card.className = 'award-card';
+                card.style.animationDelay = `${index * 0.08}s`;
+
+                card.innerHTML = `
+          <div class="award-icon-box">${award.icon}</div>
+          <div class="award-content">
+            <h3 class="award-title">${award.title}</h3>
+            <p class="award-org">${award.organization}</p>
+            <p class="award-date"><i class="fa-solid fa-calendar-days" style="margin-right:6px;"></i>${award.date}</p>
+            <p class="award-desc">${award.description}</p>
+            <span class="award-badge">${award.badge}</span>
+          </div>
+        `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Load awards when page loads
+        document.addEventListener('DOMContentLoaded', loadAwards);
+    </script>
+</body>
+
+</html>
