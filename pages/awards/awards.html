@@ -597,7 +597,7 @@
         // Fetch and render awards
         async function loadAwards() {
             try {
-                const response = await fetch('https://dimmithra.github.io/Dimmithra_Perera/json/award_Detail.json');
+                const response = await fetch('https://dimmithra.github.io/Dimmithra_Perera/json/award.json');
                 if (!response.ok) throw new Error('Failed to load awards');
                 const data = await response.json();
                 renderAwards(data.awards);
